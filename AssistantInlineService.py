@@ -7,7 +7,13 @@ class AssistantInlineService():
     def getAssistant(self) -> ChatBot:
         return BotFactory().getBot("Gemini")
     def defineAssistant(self, code: str) -> CommandDTO:
-        return CommandDTO(role = "Inline Code Assistant", temperature= 0.1, prompt=f"Return the next line of code: {code}")
+        ROLE = "Code Assistant"
+        TEMPERATURE = 0.5
+        PROMPT = (f'Primary Task: Provide code snippets, complete scripts based ' +
+                  f'on user input and comments.'+
+                    'The response should always be concise, actionable, and executable.'
+                  f' Code or user input: {code}')
+        return CommandDTO(role = ROLE, temperature=TEMPERATURE , prompt=PROMPT)
     def getInlineAssistance(self, code):
         bot = self.getAssistant()
         command = self.defineAssistant(code)
