@@ -9,7 +9,7 @@ class AssistantInlineService():
     def defineAssistant(self, code: str) -> CommandDTO:
         ROLE = "Code Assistant"
         TEMPERATURE = 0.5
-        PROMPT = (f'Primary Task: Provide code snippets, complete scripts based ' +
+        PROMPT = (f'Primary Task: return the next code snippets, complete scripts based ' +
                   f'on user input and comments.'+
                     'The response should always be concise, actionable, and executable.'
                   f' Code or user input: {code}')
